@@ -52,6 +52,7 @@
 <script>
 $( document ).ready(function() {
   $('button#enviar').on('click', function(){
+	  console.log('teste sem conflito')
     event.preventDefault();
     console.log('vamos resetar esse commit')
     $('input').each(function(){
@@ -60,7 +61,6 @@ $( document ).ready(function() {
         return
       }
       $(this).val().trim() == '' ? $(this).addClass('vazio') : $(this).removeClass('vazio')
-	  console.log('teste luca')
       console.log('alterar aqui')
     })
   })

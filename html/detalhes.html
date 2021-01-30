@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  MINHA TELA DE DETALHES
+  <button id="back">Voltar</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>
+          Nome
+        </th>
+        <th>
+          Area
+        </th>
+        <th>
+          Gestor
+        </th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+  </table>
+</body>
+</html>
+<script>
+  window.onload = () =>{
+    let back = document.querySelector('#back')
+    back.onclick = ()=>{
+      window.history.back()
+    }    
+    
+    const details = [
+      {id: 849, formacao: 'Processamento de dados', rg: '53425234', cpf: 09874654, idade: 21, nome: 'João', area: 'QA', gestor: 'Agnaldo'},
+      {id: 412, formacao: 'Análise de sistemas', rg: '09283423', cpf: 092398234, idade: 34, nome: 'Maria', area: 'Dev', gestor: 'Agnaldo'},
+      {id: 811, formacao: 'Processamento de dados', rg: '2345435', cpf: 4324234, idade: 40, nome: 'José', area: 'PM', gestor: 'Rute'},
+    ]
+
+    let url = window.location.search;
+    let params = new URLSearchParams(url)
+    // console.log(params.getAll('linguagem'))
+    let keys = params.keys()
+    keys = [...keys];
+    
+    
+    keys.forEach(element => {
+      console.log(element)
+    });
+    // for(let key of keys){
+    //   console.log(key)
+    // }
+
+  }
+</script>

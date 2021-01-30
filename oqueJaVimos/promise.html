@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  
+  async function myDisplay() {
+    let arr = []
+    let myPromise = new Promise(function(vamosResolver, vamosRejeitar) {
+      setTimeout(function() { 
+        arr = [1,2,3]
+        vamosResolver('resolveu'); 
+      }, 1000);
+    });
+  
+    await myPromise
+    console.log(arr)
+  }
+
+  myDisplay();
+
+  // function f1(params) {
+  //   let promessa = new Promise((resolve, reject)=>{
+  //     console.log('PASSO 1')
+  //     resolve('sucessooooooooooooooo')
+  //   })
+  //   return promessa
+  // }  
+
+  // function chamatimeout(){
+  //   f1()
+  //   .then((msg)=>{
+  //     console.log('PASSO  2', msg)        
+  //   })
+  // }
+  // chamatimeout()
+
+
+// function n1(){
+//   setTimeout(() => {
+//     console.log('passo 1')  
+//   }, 3000);
+  
+// }
+
+// function n2() {
+//   n1()
+//   console.log('passo 2')  
+// }
+// n2()
+</script>

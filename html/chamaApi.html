@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <form>
+    Titulo: <input type="text" name="nome" id="title" required>
+    Assunto: <input type="text" name="nome" id="subject" required>
+    Mensagem: <input type="text" name="nome" id="body" required>            
+    <button type="submit" onclick="send()">enviar</button>  
+  </form>
+  
+</body>
+</html>
+<script>
+  
+  function buildForm(){
+    const titulo = document.querySelector("#title").value
+    const assunto = document.querySelector("#subject").value
+    const corpo = document.querySelector("#body").value    
+
+    return  {
+      "email_models": [{
+          "body": corpo,
+          "subject": assunto,
+          "title": titulo
+      }]
+    }
+
+    const form = document.querySelector('form')
+    let objForm = Object.values(form).reduce((obj,field) => { 
+      if(field.type == 'text') obj[field.id] = field.value;
+      return obj 
+    }, {})
+
+    return  {
+      "email_models": [objForm]
+    }
+    
+  }
+
+  function send(){
+    let url = 'http://localhost:81/api/v1/email-models/161'
+    let formData = buildForm()
+        
+    const token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnBsYW5uaW5nLmJpbyIsImF1ZCI6Imh0dHBzOlwvXC9wbGFubmluZy5iaW8iLCJqdGkiOiIxOSIsInVpZCI6MSwiY29tcGFueV9uYW1lIjoiSE9TUElUQUwgTEVGT1JURSIsImNvbXBhbnlfbGFuZyI6InB0X2JyIiwidXNlcl9uYW1lIjoiYWRtaW4iLCJpYXQiOjE2MTEzNDE2MzUsIm5iZiI6MTYxMTM0MTYzNSwiZXhwIjoxNjExNDI4MDM1fQ.v0QKqhaRdcMBXZIQcpU_g05-oC5bE8TpMti04MYcNRs'
+    
+    fetch(url, {
+      method: 'PUT',      
+      headers: {
+        'Authorization': token,          
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    }).then((response)=>{
+      console.log(response)
+    })
+  }
+</script>

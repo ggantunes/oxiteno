@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--biblioteca completa do jQuery--><script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <!--plugin do jquery--><script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+  <style>
+    .myDiv{
+      width: 200px;
+      height: 200px;
+      background-color: #b1ee9f;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="datepicker">
+  <button id="animate">Vamos animar!</button>
+  <button id="removeAll" class="btnRemover">Remover todos</button>
+  <div class="myDiv">
+    Hoje tem! JQuery!
+  </div>
+  <button id="addLi">Adicionar linhas</button>
+    <ul id="ul">
+    </ul>  
+</body>
+</html>
+
+<script>
+$( document ).ready(function() {    
+    $( "#datepicker" ).datepicker()
+    $( '#animate' ).on('click', function () {
+      $( ".myDiv" ).animate({
+        opacity: 'toggle',
+        height: "toggle"
+      }, 2000, function() {
+        
+      });  
+    });
+    
+    function animar() {
+      $( this ).animate({
+        opacity: 'toggle',
+        height: "toggle"
+      }, 1000, ()=> {
+        this.remove()
+      });  
+    }
+
+    let cont = 0  
+    $('button#addLi').on('click', function () {
+      const tr = `<li class='essaLi'> item ${cont} aqui</tr>`
+      cont++
+      $( '#ul' ).append(tr)
+    });
+
+    $(document).on('dblclick', '.essaLi',function() {
+      animar.apply(this)      
+    });
+    
+    $('#removeAll').on('click', function() {
+      $('#ul')
+        .find('li')
+        .each(function(){
+          animar.apply(this)         
+        })
+    })
+});
+/*.hide() // esconde elemento
+.show() // mostra elemento
+.find('.minhaClasse') // encontra o/os elemento com a class="minhaClasse"
+.each(function(){}) // realiza uma ação para cada elemento encontrado
+.animate(...) // aplica animações customizadas
+.attr('class') // pega o valor de um atributo
+.on('evento', function(){})
+funcao.apply(this) // aplica texto contexto da função para a função invocadora
+.append('.minhaClasse') // adiciona conteúdo ao final do elemento
+.prepend() // adiciona conteúdo ao início do elemento  
+*/
+</script>

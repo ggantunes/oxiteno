@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- COMEÇO DO HEAD -->  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de HTML!</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <script type="text/javascript" src="../js/form.js"></script>    
+  </head>
+<!-- FIM DO HEAD -->  
+  <body>    
+    <div class="container">
+      <div>
+        <form method="POST" action="/recebeform" >
+          <div class="container_form">          
+            <div class="box">
+              <label for="nome"> Nome</label>
+              <input placeholder="digite seu nome" type="text" meuatributo="teste" id="nome" required>
+              <span id="conteudo_nome"></span>
+            </div>
+            
+            <div class="box">
+              <label for="nome">Sexo</label>
+              Homem<input name="sexo" class="sexo" value="s" type="radio">
+              Mulher<input name="sexo" class="sexo" value="n" type="radio">
+              Outro<input name="sexo" class="sexo" value="o" type="radio">
+            </div>
+            
+            <div class="box">
+              <label for="">Linguagens</label>
+              PHP
+              <input type="checkbox" class="linguagem" value="php">
+              JS<input type="checkbox" class="linguagem" value="js">
+              HTML<input type="checkbox" class="linguagem" value="html">
+              PHYTON<input type="checkbox" class="linguagem" value="phuton">
+            </div>
+
+            <div class="box">
+              <label for="">Cidade</label>
+              <select name="" id="">
+                <option value="sp">
+                  São Paulo
+                </option>
+                <option value="rj">Rio de Janeiro</option>
+                <option value="it">Itapetininga</option>
+              </select>
+            </div>
+            
+            <div class="box">
+              <label for="data">Data</label>
+              <input type="date" id="data">
+            </div>
+            
+            <div class="box">
+              <label for="email">E-mail</label>
+              <input type="email" placeholder="insira um email válido" name="" id="email">
+            </div>
+                      
+            <div class="box">
+              <label for="biblio">Minha bibliografia</label>
+              <textarea name="" id="biblio" cols="30" rows="10">Minha bibliografia
+              </textarea>
+            </div>
+          </div>                      
+        </form>
+        <button name="submeter" id="enviar">Enviar</button>
+      </div>
+      <div class="data_form">
+        <h2>Confira seus dados:</h2>
+        <ul id="u_list">
+        </ul>
+      </div>
+    </div>
+    
+  </body>
+</html>

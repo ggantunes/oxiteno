@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="back">Voltar</button>
+  <div>
+    <span>Nome: </span>
+    <span id="name"></span>
+  </div>
+
+  <div>
+    <span>CPF: </span>
+    <span id="cpf"></span>
+  </div>
+
+  <div>
+    <span>Celular: </span>
+    <span id="cel"></span>
+  </div>
+
+  <div>
+    <span>Endereço: </span>
+    <span id="address"></span>
+  </div>
+
+  <div>
+    <span>E-mail: </span>
+    <span id="email"></span>
+  </div>
+
+  <div>
+    <span>Linguagens: </span>
+    <span id="language"></span>
+  </div>
+</body>
+</html>
+
+<script>
+  window.onload = () =>{
+    const back = document.querySelector('#back')
+    back.onclick = () =>{
+      window.history.back()
+    }
+
+    const url = window.location.search
+    const params = new URLSearchParams(url)
+
+    const qsName = params.get('name')
+    const name = document.querySelector('#name') 
+    name.innerText = qsName
+
+    const qsCpf = params.get('cpf')
+    const cpf = document.querySelector('#cpf') 
+    cpf.innerText = qsCpf
+
+    const qsCel = params.get('cel')
+    const cel = document.querySelector('#cel') 
+    cel.innerText = qsCel
+
+    const qsAddress = params.get('address')
+    const address = document.querySelector('#address') 
+    address.innerText = qsAddress
+
+    const qsEmail = params.get('email')
+    const email = document.querySelector('#email') 
+    email.innerText = qsEmail
+
+    const qsLanguages = params.getAll('language')
+    const language = document.querySelector('#language') 
+    language.innerText = qsLanguages
+        
+    for(let key of params.keys()){
+      console.log('chave', key)
+    }
+    
+    // console.log([...params.keys()])
+    // console.log([...params.values()])
+    // console.log([...params.entries()])
+  }
+</script>

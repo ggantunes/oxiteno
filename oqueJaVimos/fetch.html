@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <select name="" id="cidades">
+        <option value="0">Selecione uma opção</option>
+      </select>
+      <input type="text" id="nome">
+      <button id="exibeValor" onclick="exibeValor()">Exibir cidade</button>
+    </div>
+  </body>
+</html>
+
+<script type="text/JavaScript">
+  
+  let url = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos';    
+  // let select = document.querySelector('#cidades')
+  
+  fetch(url)
+  .then(function(response) {
+    response.json().then(function(data){      
+      let cidades = data;    
+      for(let i = 0; i < 10; i++){
+        console.log(cidades[i])
+      }              
+    })        
+  });
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form method="GET" action="detalhes.html">
+    <div>
+      <label for="name">Nome: </label>
+      <input type="text" name="name" id="name" >
+      <!-- nome email cpf telefone endereço  -->
+    </div>
+    
+    <div>
+      <label for="email">E-mail: </label>
+      <input type="email" name="email" id="email" >
+    </div>
+    
+    <div>
+      <label for="cpf">CPF: </label>
+      <input type="text" maxlength="11" minlength="11" name="cpf" id="cpf" >
+    </div>
+
+    <div>
+      <label for="cel">Telefone: </label>
+      <input type="text" name="cel" id="cel" >
+    </div>
+
+    <div>
+      <label for="address">Endereço: </label>
+      <input type="text" name="address" id="address" >
+    </div>
+
+    <div>
+      <label for="linguagem">Linguagens: </label>
+      PHP<input type="checkbox" name="language" value="php">
+      JS<input type="checkbox" name="language" value="js">
+    </div>
+    
+    <div>
+      <input type="submit" value="Enviar">
+    </div>  
+  </form>
+  
+</body>
+</html>

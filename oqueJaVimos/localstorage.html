@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    
+  </body>
+</html>
+
+<script type="text/JavaScript">
+  let url = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos'
+  let dadosLocais = localStorage.getItem('nomesCidades')
+
+  if(dadosLocais){
+    mostraNomes(JSON.parse(dadosLocais))
+  }else{
+    fetch(url)    
+    .then(function(response) {
+      if(!response.ok){
+        alert(`Ocorreu um erro \n Código: ${response.status}, ${response.statusText}` )
+        return
+      }
+      return response.json();
+    })
+    .then(function(data){
+      console.log('so executa ate aqui')
+      return;
+      console.lo('nao cheguei aqui')
+        let nomes = []
+        let cidades = data;
+      
+        for(let i = 0; i < 10; i++){
+          nomes.push(cidades[i].nome)
+        }
+        localStorage.setItem('nomesCidades', JSON.stringify(nomes))
+        mostraNomes(nomes)
+      
+    });
+  }
+
+  function mostraNomes(nomes){
+    nomes.forEach(nome => {
+      console.log(nome)
+    });
+  }
+</script>

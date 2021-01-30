@@ -1,0 +1,47 @@
+<script>
+const qualquerCoisa = 'obj'
+const obj = {
+  
+    nome: "Maria",
+    idade: 20,
+    altura: "1.65"
+  
+}
+
+let obj2 = {...obj}
+obj2.nome = "João"
+console.log(obj)
+console.log(obj2)
+
+
+
+  // if(localStorage.getItem('pessoa')){
+  //   const pessoaLS = JSON.parse(localStorage.getItem('pessoa'))
+  //   const caracs = Object.assign(pessoaLS.pessoa.caracteristicas) 
+    
+    
+  //   let msg = `
+  //       Nome: ${pessoaLS.pessoa.nome}, 
+  //       Idade: ${pessoaLS.pessoa.idade}, 
+  //       Características: 
+  //         olhos: ${caracs.olhos}  
+  //         cor do cabelo: ${caracs.cabelo.cor}  
+  //     `
+  //     console.log(msg.trim())
+  // }else {
+  //   const pessoa = {
+  //       pessoa:{
+  //           nome: "Gabriel",
+  //           idade: "32",
+  //           sexo: "M",
+  //           caracteristicas: {
+  //             olhos: "verdes",
+  //             cabelo: {c: "curto", cor: "loiro"},
+  //             nariz: "normal"
+  //           }
+  //       }
+  //     }
+
+  //     localStorage.setItem('pessoa', JSON.stringify(pessoa))      
+  // }
+</script>

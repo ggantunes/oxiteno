@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table, td{
+      border: 1px solid #929092;
+    } 
+  </style>
+</head>
+<body>
+  <!-- <div><button type="button" id="dobrar">Dobra valores</button></div> -->
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>
+          Nome
+        </th>
+        <th>
+          Motivo
+        </th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+    </tbody>
+  </table>
+</body>
+</html>
+<script>
+  window.onload = function(){
+    const users = [
+      {id: 1, nome: 'João', motivo: 'Mouse quebrado'},
+      {id: 2, nome: 'Maria', motivo: 'Tela azul'},
+      {id: 3, nome: 'Celso', motivo: 'Monitor adicional'},
+      {id: 4, nome: 'Amanda', motivo: 'VPN não funciona'},
+      {id: 5, nome: 'Lopes', motivo: 'lentidão'}
+    ]
+
+    let tbody = document.querySelector('#tbody')
+
+    users.forEach((linha) =>{
+      let tr = document.createElement('tr')
+
+      tr.setAttribute('id', linha.id)
+
+      tr.addEventListener('dblclick', (el)=>{
+        const id = tr.getAttribute('id')
+        window.location.href=`detalhesChamado.html?id=${id}`
+      })
+      
+      tbody.appendChild(tr)
+      Object.values(linha).forEach((coluna)=>{        
+        let td = document.createElement('td')
+        td.innerText = coluna
+        tr.appendChild(td)
+      })
+    })
+  }
+</script>

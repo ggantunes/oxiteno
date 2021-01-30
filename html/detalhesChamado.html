@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <div>
+      <span>Id: </span>
+      <span id="id"></span></div>
+    <div>
+      <span>Colaborador: </span>
+      <span id="nome"></span></div>
+    <div>
+      <span>Motivo do chamado: 
+
+      </span><span id="motivo"></span></div>
+    <div>
+      <span>Setor: </span>
+      <span id="setor"></span></div>
+    <div>
+      <span>Data de abertura: 
+
+      </span><span id="dataAbertura"></span></div>
+    <div>
+      <span>Urgência: </span>
+      <span id="urgencia"></span></div>
+  </div>
+</body>
+</html>
+
+<script>
+  window.onload = ()=>{
+    const details = [
+      {id: 1, nome: 'João', motivo: 'Mouse quebrado', setor: 'Compras', dataAbertura: '01/01/2021', urgencia: 'baixa'},
+      {id: 2, nome: 'Maria', motivo: 'Tela azul', setor: 'Desenvolvimento', dataAbertura: '20/01/2021', urgencia: 'alta'},
+      {id: 3, nome: 'Celso', motivo: 'Monitor adicional', setor: 'QA', dataAbertura: '18/01/2021', urgencia: 'baixa'},
+      {id: 4, nome: 'Amanda', motivo: 'VPN não funciona', setor: 'RH', dataAbertura: '03/01/2021', urgencia: 'média'},
+      {id: 5, nome: 'Lopes', motivo: 'lentidão', setor: 'Vendas', dataAbertura: '11/01/2021', urgencia: 'alta'},
+    ]
+    
+    const url = window.location.search
+    const params = new URLSearchParams(url)
+    const id = params.get('id')
+    
+    const showDetail = details.filter((detail)=> detail.id == id)
+    console.log('showDetail', Object.entries(showDetail[0]))
+    for(let [key, value] of Object.entries(showDetail[0])){
+      document.querySelector(`#${key}`).innerText = value
+    }
+  }
+  
+</script>

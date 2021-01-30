@@ -53,14 +53,12 @@
 $( document ).ready(function() {
   $('button#enviar').on('click', function(){
     event.preventDefault();
-    console.log('vamos resetar esse commit')
     $('input').each(function(){
       if( $(this).attr('type') == 'checkbox'){
         $(this).prop('checked') ? $(this).parent().removeClass('vazio') : $(this).parent().addClass('vazio')
         return
       }
       $(this).val().trim() == '' ? $(this).addClass('vazio') : $(this).removeClass('vazio')
-      console.log('teste gabriel')      
     })
   })
 });
